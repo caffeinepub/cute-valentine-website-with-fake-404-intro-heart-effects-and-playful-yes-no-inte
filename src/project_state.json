@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a cute Valentine-themed website that initially shows a fake 404 on refresh, then prompts \"Will you be my valentine?\" with heart effects and playful Yes/No interactions, followed by a personalized love message and a blue heart animation after accepting.",
+  "architectural_notes": [
+    "Implement as a small static front-end page using HTML/CSS/JS with simple state transitions (404 -> prompt -> accepted)."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-implement-a-two-step-flow-on-every-full-page-refresh-show-a-fake-404-screen-first-then-transition-to-the-valentine-prompt-screen-will-you-be-my-valentine-the-404-screen-must-be-the-first-thing-visible-after-refresh-and-must-automatically-proceed-to-the-valentine-prompt-without-requiring-navigation-to-a-new-url",
+      "title": "Implement a two-step flow: on every full page refresh, show a fake “404” screen first, then transition to the Valentine prompt screen (“Will you be my valentine?”). The 404 screen must be the first thing visible after refresh and must automatically proceed to the Valentine prompt without requiring navigation to a new URL.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-valentine-prompt-ui-with-animated-heart-effects-the-screen-must-prominently-display-the-question-text-exactly-as-will-you-be-my-valentine-and-include-continuous-cute-heart-animations-e-g-floating-hearts-particle-like-hearts-without-degrading-performance",
+      "title": "Create the Valentine prompt UI with animated heart effects. The screen must prominently display the question text exactly as: “Will you be my valentine?” and include continuous, cute heart animations (e.g., floating hearts / particle-like hearts) without degrading performance.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-interactive-yes-and-no-buttons-near-each-other-on-the-valentine-prompt-screen-yes-must-be-the-primary-clickable-choice-the-no-button-must-evade-interaction-when-the-user-tries-to-click-tap-it-or-hovers-it-on-desktop-it-moves-to-a-new-position-such-that-it-cannot-be-successfully-clicked",
+      "title": "Add interactive “Yes” and “No” buttons near each other on the Valentine prompt screen. “Yes” must be the primary/clickable choice. The “No” button must evade interaction: when the user tries to click/tap it (or hovers it on desktop), it moves to a new position such that it cannot be successfully clicked.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-clicking-yes-replace-the-prompt-with-a-success-screen-that-displays-the-exact-text-i-love-you-karuvaya-and-show-a-blue-heart-effect-animation-e-g-a-large-pulsing-blue-heart-plus-or-blue-floating-hearts",
+      "title": "On clicking “Yes”, replace the prompt with a success screen that displays the exact text: “I Love you Karuvaya.” and show a blue heart effect/animation (e.g., a large pulsing blue heart plus/or blue floating hearts).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-cute-visual-theme-across-the-404-screen-valentine-prompt-and-success-screen-using-tailwind-styling-consistent-typography-spacing-and-playful-motion-avoid-a-blue-purple-dominant-palette-for-the-overall-theme-blue-is-reserved-for-the-final-heart-effect",
+      "title": "Apply a cohesive “cute” visual theme across the 404 screen, Valentine prompt, and success screen using Tailwind styling (consistent typography, spacing, and playful motion). Avoid a blue/purple-dominant palette for the overall theme (blue is reserved for the final heart effect).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Show a fake 404 page on initial load/refresh, then transition to the Valentine prompt page.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Valentine prompt UI: display \"Will you be my valentine?\" with animated heart effects.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Interactive Yes/No buttons: Yes is clickable; No moves away on attempt so it cannot be clicked.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "On clicking Yes, display \"I Love you Karuvaya\" and show a blue heart effect/animation.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Cute Valentine website with fake 404 intro, heart effects, and playful Yes/No interaction",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

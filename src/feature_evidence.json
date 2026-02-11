@@ -1,0 +1,103 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-implement-a-two-step-flow-on-every-full-page-refresh-show-a-fake-404-screen-first-then-transition-to-the-valentine-prompt-screen-will-you-be-my-valentine-the-404-screen-must-be-the-first-thing-visible-after-refresh-and-must-automatically-proceed-to-the-valentine-prompt-without-requiring-navigation-to-a-new-url",
+      "featureTitle": "Implement a two-step flow: on every full page refresh, show a fake “404” screen first, then transition to the Valentine prompt screen (“Will you be my valentine?”). The 404 screen must be the first thing visible after refresh and must automatically proceed to the Valentine prompt without requiring navigation to a new URL.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/features/valentine/Fake404Screen.tsx",
+        "frontend/src/features/valentine/ValentineExperience.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-the-valentine-prompt-ui-with-animated-heart-effects-the-screen-must-prominently-display-the-question-text-exactly-as-will-you-be-my-valentine-and-include-continuous-cute-heart-animations-e-g-floating-hearts-particle-like-hearts-without-degrading-performance",
+      "featureTitle": "Create the Valentine prompt UI with animated heart effects. The screen must prominently display the question text exactly as: “Will you be my valentine?” and include continuous, cute heart animations (e.g., floating hearts / particle-like hearts) without degrading performance.",
+      "files": [
+        "frontend/src/features/valentine/HeartField.tsx",
+        "frontend/src/features/valentine/ValentinePromptScreen.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-interactive-yes-and-no-buttons-near-each-other-on-the-valentine-prompt-screen-yes-must-be-the-primary-clickable-choice-the-no-button-must-evade-interaction-when-the-user-tries-to-click-tap-it-or-hovers-it-on-desktop-it-moves-to-a-new-position-such-that-it-cannot-be-successfully-clicked",
+      "featureTitle": "Add interactive “Yes” and “No” buttons near each other on the Valentine prompt screen. “Yes” must be the primary/clickable choice. The “No” button must evade interaction: when the user tries to click/tap it (or hovers it on desktop), it moves to a new position such that it cannot be successfully clicked.",
+      "files": [
+        "frontend/src/features/valentine/ValentinePromptScreen.tsx",
+        "frontend/src/features/valentine/useEvasiveButton.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-on-clicking-yes-replace-the-prompt-with-a-success-screen-that-displays-the-exact-text-i-love-you-karuvaya-and-show-a-blue-heart-effect-animation-e-g-a-large-pulsing-blue-heart-plus-or-blue-floating-hearts",
+      "featureTitle": "On clicking “Yes”, replace the prompt with a success screen that displays the exact text: “I Love you Karuvaya.” and show a blue heart effect/animation (e.g., a large pulsing blue heart plus/or blue floating hearts).",
+      "files": [
+        "frontend/src/features/valentine/HeartField.tsx",
+        "frontend/src/features/valentine/SuccessScreen.tsx",
+        "frontend/src/features/valentine/ValentineExperience.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-cohesive-cute-visual-theme-across-the-404-screen-valentine-prompt-and-success-screen-using-tailwind-styling-consistent-typography-spacing-and-playful-motion-avoid-a-blue-purple-dominant-palette-for-the-overall-theme-blue-is-reserved-for-the-final-heart-effect",
+      "featureTitle": "Apply a cohesive “cute” visual theme across the 404 screen, Valentine prompt, and success screen using Tailwind styling (consistent typography, spacing, and playful motion). Avoid a blue/purple-dominant palette for the overall theme (blue is reserved for the final heart effect).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

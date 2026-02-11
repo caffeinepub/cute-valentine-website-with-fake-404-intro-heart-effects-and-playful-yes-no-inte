@@ -1,0 +1,113 @@
+{
+  "kind": "build_request",
+  "title": "Cute Valentine website with fake 404 intro, heart effects, and playful Yes/No interaction",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Implement a two-step flow: on every full page refresh, show a fake “404” screen first, then transition to the Valentine prompt screen (“Will you be my valentine?”). The 404 screen must be the first thing visible after refresh and must automatically proceed to the Valentine prompt without requiring navigation to a new URL.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create a Website that should show first 404 after refresh. Then ask will you be my valentine."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Refreshing the page shows a fake 404 screen first (before any Valentine prompt UI).",
+        "After a short delay (or a clear, single action like a “Go back” button), the app transitions to the Valentine prompt screen.",
+        "No backend calls are required to control this flow."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create the Valentine prompt UI with animated heart effects. The screen must prominently display the question text exactly as: “Will you be my valentine?” and include continuous, cute heart animations (e.g., floating hearts / particle-like hearts) without degrading performance.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Then ask will you be my valentine. Show heart effects .",
+          "Create this cute"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Valentine screen shows the exact text “Will you be my valentine?”.",
+        "A visible heart animation effect is present on the Valentine screen.",
+        "The animation remains smooth on both desktop and mobile (no major jank during interaction)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add interactive “Yes” and “No” buttons near each other on the Valentine prompt screen. “Yes” must be the primary/clickable choice. The “No” button must evade interaction: when the user tries to click/tap it (or hovers it on desktop), it moves to a new position such that it cannot be successfully clicked.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Click yes near yes no can be there but while clicking no it should move but should not able to click . Yes is the main option ."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Both “Yes” and “No” buttons are visible and placed near each other initially.",
+        "Clicking/tapping “Yes” triggers the acceptance flow (does not move away).",
+        "Attempting to click/tap (and/or hover) “No” causes it to move away before the click completes, preventing successful selection.",
+        "“No” remains effectively unclickable in normal use (desktop + mobile)."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "On clicking “Yes”, replace the prompt with a success screen that displays the exact text: “I Love you Karuvaya.” and show a blue heart effect/animation (e.g., a large pulsing blue heart plus/or blue floating hearts).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "After clicking yes. Say I Love you Karuvaya. Then show blue heart ."
+        ]
+      },
+      "acceptanceCriteria": [
+        "After clicking “Yes”, the Valentine prompt screen is replaced by a message showing exactly “I Love you Karuvaya.” (including capitalization and punctuation).",
+        "A clearly blue heart visual effect/animation is shown on the success screen.",
+        "The blue heart effect is visually distinct from the earlier (general) heart effects."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Apply a cohesive “cute” visual theme across the 404 screen, Valentine prompt, and success screen using Tailwind styling (consistent typography, spacing, and playful motion). Avoid a blue/purple-dominant palette for the overall theme (blue is reserved for the final heart effect).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create this cute"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All screens share a consistent visual style (typography, background treatment, and button styling).",
+        "Overall theme is cute and warm (e.g., soft pinks/peaches/creams), and is not primarily blue/purple.",
+        "The final screen includes a blue heart effect while the rest of the theme remains warm-toned."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend must not modify any files under frontend/src/components/ui (Shadcn components must be composed/used, not edited).",
+    "Frontend must not modify immutable paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx.",
+    "Backend must remain a single Motoko actor; do not introduce additional backend services."
+  ],
+  "nonGoals": [
+    "No Internet Identity authentication flow is required.",
+    "No persistent user data storage or backend state is required for this experience.",
+    "No third-party integrations (analytics, social APIs, external databases, webhooks)."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "backend/main.mo": "Empty Motoko actor placeholder with no logic.",
+  "feature_evidence.json": "JSON report listing implemented Valentine features, related files, components, and test IDs.",
+  "frontend-file-summaries.txt": "Prewritten summaries describing key frontend files and their roles in the Valentine flow and animations.",
+  "frontend/index.css": "Tailwind base setup defining OKLCH theme tokens for light/dark modes and applying global background/text styles.",
+  "frontend/index.html": "HTML entry point mounting the React app and loading main.tsx.",
+  "frontend/src/App.tsx": "Root component rendering ValentineExperience and a fixed footer with caffeine.ai attribution.",
+  "frontend/src/features/valentine/Fake404Screen.tsx": "Fake 404 screen showing large alert visuals and text, used as the intro step before auto-transitioning.",
+  "frontend/src/features/valentine/HeartField.tsx": "Floating heart animation generator that continuously spawns hearts in warm or blue variants.",
+  "frontend/src/features/valentine/SuccessScreen.tsx": "Success UI with blue heart animations and the message “I Love you Karuvaya.”",
+  "frontend/src/features/valentine/useEvasiveButton.ts": "Hook controlling randomized evasive movement for the No button based on pointer proximity.",
+  "frontend/src/features/valentine/ValentineExperience.tsx": "State controller switching between fake404, prompt, and success phases with timed transition.",
+  "frontend/src/features/valentine/ValentinePromptScreen.tsx": "Prompt screen showing the question, warm hearts, a Yes button, and an evasive No button.",
+  "frontend/src/hooks/useActor.ts": "React hook creating and refreshing a backend actor based on Internet Identity authentication.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides a React context and provider for managing Internet Identity login state, exposing identity, login, logout, and status helpers. Handles AuthClient creation, stored identity loading, and login flow tracking.",
+  "frontend/src/index.css": "Defines Tailwind base layers, color variables, global styles, and themed animations such as floating and pulsing hearts. Supports light/dark modes and Valentine-themed palette.",
+  "frontend/src/lib/utils.ts": "Exports a helper function that merges class names using clsx and tailwind-merge for deduplicated Tailwind classes.",
+  "frontend/src/main.tsx": "Bootstraps the React app, wrapping it with React Query and the InternetIdentityProvider before rendering App.",
+  "frontend/tailwind.config.js": "Configures Tailwind with custom colors, radii, fonts, animations, and plugins like typography and container-queries.",
+  "project_state.json": "Describes project goals and features for a Valentine-themed website, outlining flow requirements and theming constraints."
+}

@@ -1,0 +1,133 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Cute Valentine flow with fake 404 intro, heart animations, and playful Yes/No interaction",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Show a fake 404 screen immediately after every refresh, then automatically transition to the Valentine prompt without changing the URL.",
+      "acceptanceCriteria": [
+        "Refreshing the page shows a fake 404 screen first (before any Valentine prompt UI).",
+        "After a short delay (or a clear, single action like a “Go back” button), the app transitions to the Valentine prompt screen.",
+        "No backend calls are required to control this flow."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app shell that renders a single on-page flow (fake 404 -> Valentine prompt -> success) without navigation/URL changes; ensure initial render always starts on the fake 404 screen after a full refresh."
+        },
+        {
+          "path": "frontend/src/features/valentine/ValentineExperience.tsx",
+          "operation": "create",
+          "description": "Implement the two-step phase state machine (404 then prompt) with an automatic timed transition and optional single-action CTA (e.g., “Go back”) without changing routes."
+        },
+        {
+          "path": "frontend/src/features/valentine/Fake404Screen.tsx",
+          "operation": "create",
+          "description": "Add the fake “404” screen UI that is the first visible content after refresh and hands off to the Valentine prompt phase."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Build the Valentine prompt UI showing the exact question text and smooth, continuous heart animations.",
+      "acceptanceCriteria": [
+        "The Valentine screen shows the exact text “Will you be my valentine?”.",
+        "A visible heart animation effect is present on the Valentine screen.",
+        "The animation remains smooth on both desktop and mobile (no major jank during interaction)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/valentine/ValentinePromptScreen.tsx",
+          "operation": "create",
+          "description": "Create the Valentine prompt screen with the exact text “Will you be my valentine?” and compose the heart animation effect behind/around the content."
+        },
+        {
+          "path": "frontend/src/features/valentine/HeartField.tsx",
+          "operation": "create",
+          "description": "Implement a lightweight, continuous heart animation (CSS/keyframe or requestAnimationFrame-based) tuned for performance on mobile/desktop; provide configurable color palette for warm hearts vs. blue hearts."
+        },
+        {
+          "path": "frontend/src/components/cn.ts",
+          "operation": "create",
+          "description": "Add a small className helper (if not already present) to keep Tailwind composition tidy across the Valentine UI."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add Yes/No buttons with Yes as the primary action and a No button that evasively moves to prevent selection on desktop and mobile.",
+      "acceptanceCriteria": [
+        "Both “Yes” and “No” buttons are visible and placed near each other initially.",
+        "Clicking/tapping “Yes” triggers the acceptance flow (does not move away).",
+        "Attempting to click/tap (and/or hover) “No” causes it to move away before the click completes, preventing successful selection.",
+        "“No” remains effectively unclickable in normal use (desktop + mobile)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/valentine/ValentinePromptScreen.tsx",
+          "operation": "modify",
+          "description": "Add a Yes primary button and an evasive No button placed near each other initially; use shadcn-ui Button component for consistent styling (Verify the component's usage instructions before implementing.). Implement No evasion via pointer/hover/touch handlers that reposition it before a click can complete and keep it effectively unclickable."
+        },
+        {
+          "path": "frontend/src/features/valentine/useEvasiveButton.ts",
+          "operation": "create",
+          "description": "Add a hook to manage evasive No button positioning within a container (bounds-aware random placement, mobile-friendly pointer handling, and reduced-motion support)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "After clicking Yes, show a success screen with the exact love message and a distinct blue heart animation/effect.",
+      "acceptanceCriteria": [
+        "After clicking “Yes”, the Valentine prompt screen is replaced by a message showing exactly “I Love you Karuvaya.” (including capitalization and punctuation).",
+        "A clearly blue heart visual effect/animation is shown on the success screen.",
+        "The blue heart effect is visually distinct from the earlier (general) heart effects."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/valentine/SuccessScreen.tsx",
+          "operation": "create",
+          "description": "Create the success screen that replaces the prompt after Yes is clicked, displaying exactly “I Love you Karuvaya.” and rendering a distinct blue heart effect (e.g., pulsing central heart plus blue floating hearts)."
+        },
+        {
+          "path": "frontend/src/features/valentine/ValentineExperience.tsx",
+          "operation": "modify",
+          "description": "Wire the Yes action to transition the flow state to the success screen and stop/replace the warm heart field with the blue heart effect."
+        },
+        {
+          "path": "frontend/src/features/valentine/HeartField.tsx",
+          "operation": "modify",
+          "description": "Support a dedicated blue variant (colors, density, motion) so the success screen heart effect is clearly distinct from the warm-toned prompt effect."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Apply a cohesive cute warm theme across all screens using Tailwind styling, avoiding blue/purple dominance except for the final blue heart effect.",
+      "acceptanceCriteria": [
+        "All screens share a consistent visual style (typography, background treatment, and button styling).",
+        "Overall theme is cute and warm (e.g., soft pinks/peaches/creams), and is not primarily blue/purple.",
+        "The final screen includes a blue heart effect while the rest of the theme remains warm-toned."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Define global Tailwind base styles and a warm, cute background treatment (soft pink/peach/cream), consistent typography, and motion defaults; ensure the global palette is not blue/purple-dominant."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply a shared layout wrapper (spacing/typography/background) so the fake 404, prompt, and success screens feel cohesive; keep blue reserved for the success heart effect only."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme tokens (optional) for warm accent colors and subtle motion utilities used across screens, ensuring global defaults remain warm-toned."
+        }
+      ]
+    }
+  ]
+}

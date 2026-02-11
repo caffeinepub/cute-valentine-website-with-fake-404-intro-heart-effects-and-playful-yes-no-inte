@@ -1,0 +1,12 @@
+{
+  "frontend/src/index.css": "Global styles with warm pink/peach OKLCH color palette for cute Valentine theme, custom keyframe animations for floating hearts, pulsing hearts, and bounce-in effects.",
+  "frontend/tailwind.config.js": "Extended Tailwind configuration with warm color tokens, custom font families (Segoe UI, Georgia), increased border radius, and soft shadow utilities for the Valentine aesthetic.",
+  "frontend/src/App.tsx": "Root application component that renders the ValentineExperience flow and includes a footer with caffeine.ai attribution and dynamic year.",
+  "frontend/src/features/valentine/ValentineExperience.tsx": "State machine component managing three phases (fake404, prompt, success) with automatic transition from 404 to prompt after 2 seconds.",
+  "frontend/src/features/valentine/Fake404Screen.tsx": "Fake 404 error page with centered alert icon, large \"404\" text, and error message that displays briefly before transitioning to the Valentine prompt.",
+  "frontend/src/features/valentine/ValentinePromptScreen.tsx": "Valentine question screen with \"Will you be my valentine?\" text, warm heart animations, a clickable Yes button, and an evasive No button that moves away on hover/pointer approach.",
+  "frontend/src/features/valentine/SuccessScreen.tsx": "Success screen displaying \"I Love you Karuvaya.\" with a large blue pulsing heart and blue floating heart animations in the background.",
+  "frontend/src/features/valentine/HeartField.tsx": "Animated heart particle system component that generates floating hearts continuously; supports warm (pink) and blue color variants for different screens.",
+  "frontend/src/features/valentine/useEvasiveButton.ts": "Custom React hook managing the evasive No button behavior with position state and pointer event handlers that move the button away when approached.",
+  "frontend/src/lib/utils.ts": "Utility function combining clsx and tailwind-merge for clean className composition throughout the application."
+}
